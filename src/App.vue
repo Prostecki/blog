@@ -5,7 +5,7 @@
     <!-- Header component -->
     <Header />
 
-    <CreatePostForm>
+    <CreatePostForm @addPost="addPost">
       <CreatePostButton />
     </CreatePostForm>
 
@@ -52,6 +52,10 @@
       // Method to handle opening the CreatePostForm (assuming there's some missing code related to this)
       openCreatePostForm() {
         this.showCreatePostForm = true;
+      },
+      addPost(newPost) {
+        newPost.id = this.posts.length + 1;
+        this.posts.push(newPost);
       }
     }
   }
