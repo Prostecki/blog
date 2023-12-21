@@ -5,6 +5,10 @@
     <!-- Header component -->
     <Header />
 
+    <CreatePostForm>
+      <CreatePostButton />
+    </CreatePostForm>
+
     <!-- PostList component with posts data passed as a prop -->
     <PostList :posts="posts" />
 
@@ -12,9 +16,7 @@
     <Footer />
 
     <!-- CreatePostForm component with CreatePostButton as a child -->
-    <CreatePostForm>
-      <CreatePostButton />
-    </CreatePostForm>
+    
   </div>
 </template>
 
@@ -58,11 +60,14 @@
 <style scoped>
   /* Styling for the root app element */
   .app {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
     width: 1200px;
-    height: 100vh;
     margin: 0 auto;
+  }
+
+  @media screen and (max-width: 1000px) {
+    .app {
+      width: 100%;
+      padding: 10px;
+    }
   }
 </style>

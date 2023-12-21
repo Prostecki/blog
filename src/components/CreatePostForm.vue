@@ -18,14 +18,11 @@
     .wrapper {
         position: relative;
         width: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
     }
     .createPostForm {
-        position: absolute;
-        top: 30%;
-        right: 30%;
         width: 500px;
-        height: 300px;
         padding: 5px;
         background-color: yellow;
         border-radius: 12px;
