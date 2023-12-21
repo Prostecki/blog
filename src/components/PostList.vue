@@ -1,16 +1,19 @@
 <template>
     <!-- Section wrapper for the list of posts -->
+
     <section class="wrapper">
       <!-- Loop through each post and render the PostCard component -->
+
       <article class="postList" v-for="post in posts" :key="post.id">
         <!-- Pass the current post as a prop to the PostCard component -->
         <PostCard :post="post"/>
+
       </article>
     </section>
   </template>
   
   <script>
-  
+
   // Importing the PostCard component
   import PostCard from './PostCard.vue';
   
@@ -26,11 +29,10 @@
   </script>
   
   <style scoped>
-    /* Styling for the center-aligned wrapper */
     .wrapper {
       text-align: center;
     }
-    /* Styling for each post in the list */
+
     .postList {
       margin: 10px 0;
       padding: 5px;
