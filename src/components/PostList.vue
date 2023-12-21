@@ -1,31 +1,40 @@
 <template>
+    <!-- Section wrapper for the list of posts -->
     <section class="wrapper">
-        <article class="postList" v-for="post in posts" :key="post.id">
-            <PostCard :post="post"/>
-        </article>
+      <!-- Loop through each post and render the PostCard component -->
+      <article class="postList" v-for="post in posts" :key="post.id">
+        <!-- Pass the current post as a prop to the PostCard component -->
+        <PostCard :post="post"/>
+      </article>
     </section>
-</template>
-
-<script>
-
-import PostCard from './PostCard.vue';
-
-    export default {
-        components: {
-            PostCard,
-        },
-        name: "PostList",
-        props: ['posts'] //It's array of posts
-    }
-</script>
-
-<style scoped>
+  </template>
+  
+  <script>
+  
+  // Importing the PostCard component
+  import PostCard from './PostCard.vue';
+  
+  export default {
+    // Registering the PostCard component for use in this template
+    components: {
+      PostCard,
+    },
+    // Component name and props definition (accepting an array of posts)
+    name: "PostList",
+    props: ['posts']
+  }
+  </script>
+  
+  <style scoped>
+    /* Styling for the center-aligned wrapper */
     .wrapper {
-        text-align: center;
+      text-align: center;
     }
-     .postList {
-        margin: 10px 0;
-        padding: 5px;
-        border: .5px solid black;
+    /* Styling for each post in the list */
+    .postList {
+      margin: 10px 0;
+      padding: 5px;
+      border: .5px solid black;
     }
-</style>
+  </style>
+  

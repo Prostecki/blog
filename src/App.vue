@@ -1,24 +1,25 @@
 <template>
-
+  <!-- The root element of your Vue app -->
   <div class="app">
     
+    <!-- Header component -->
     <Header />
 
+    <!-- PostList component with posts data passed as a prop -->
     <PostList :posts="posts" />
 
+    <!-- Footer component -->
     <Footer />
 
+    <!-- CreatePostForm component with CreatePostButton as a child -->
     <CreatePostForm>
-
       <CreatePostButton />
-
     </CreatePostForm>
   </div>
-
 </template>
 
 <script>
-  
+  // Importing necessary components
   import Header from "@/components/Header.vue";
   import PostList from "@/components/PostList.vue";
   import Footer from "@/components/Footer.vue";
@@ -26,6 +27,7 @@
   import CreatePostButton from "@/components/UI/CreatePostButton.vue";
 
   export default {
+    // Registering components for use in this template
     components: {
       Header,
       PostList,
@@ -34,27 +36,27 @@
       CreatePostButton,
     },
     data() {
-        return {
-            // Initial array of posts
-            posts: [
-                {id: 1, title: 'First post', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.'},
-                {id: 2, title: 'Second post',content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.'},
-                {id: 3, title: 'Third post', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.'},
-                {id: 4, title: 'Fourth post', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.'}
-            ],
+      // Data property to hold the initial array of posts
+      return {
+        posts: [
+          { id: 1, title: 'First post', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.' },
+          { id: 2, title: 'Second post', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.' },
+          { id: 3, title: 'Third post', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.' },
+          { id: 4, title: 'Fourth post', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.' }
+        ],
       };
     },
     methods: {
+      // Method to handle opening the CreatePostForm (assuming there's some missing code related to this)
       openCreatePostForm() {
         this.showCreatePostForm = true;
       }
     }
   }
-  
 </script>
 
 <style scoped>
-
+  /* Styling for the root app element */
   .app {
     display: flex;
     justify-content: space-between;
@@ -63,5 +65,4 @@
     height: 100vh;
     margin: 0 auto;
   }
-
 </style>
