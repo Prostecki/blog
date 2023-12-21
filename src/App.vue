@@ -1,6 +1,7 @@
 <template>
 
   <div class="app">
+    
     <Header />
 
     <PostList :posts="posts" />

@@ -1,5 +1,5 @@
 import { fileURLToPath, URL } from 'node:url'
-
+import VueIconsResolver from '@kalimahapps/vue-icons/resolver';
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
@@ -7,6 +7,11 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   plugins: [
     vue(),
+    Components({
+      resolvers: [
+        VueIconsResolver
+      ]
+    })
   ],
   resolve: {
     alias: {

@@ -1,19 +1,18 @@
 <template>
     <section class="wrapper">
         <article class="postList" v-for="post in posts" :key="post.id">
-            <h2>{{ post.title }}</h2>
-            <p> {{ post.content }}</p>
+            <PostCard :post="post"/>
         </article>
     </section>
 </template>
 
 <script>
+
 import PostCard from './PostCard.vue';
 
     export default {
-
         components: {
-            PostCard
+            PostCard,
         },
         name: "PostList",
         props: ['posts'] //It's array of posts
