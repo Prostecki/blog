@@ -64,7 +64,6 @@
 <style scoped>
   /* Styling for the root app element */
   .app {
-    width: 1200px;
     margin: 0 auto;
   }
 
