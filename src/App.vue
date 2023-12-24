@@ -43,8 +43,7 @@
         posts: [
           { id: 1, title: 'First post', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.' },
           { id: 2, title: 'Second post', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.' },
-          { id: 3, title: 'Third post', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.' },
-          { id: 4, title: 'Fourth post', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.' }
+          { id: 3, title: 'Third post', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.' }
         ],
       };
     },
@@ -54,8 +53,10 @@
         this.showCreatePostForm = true;
       },
       addPost(newPost) {
-        newPost.id = this.posts.length + 1;
-        this.posts.push(newPost);
+        if (newPost.title.trim() !== '' || newPost.content.trim() !== '') {
+          newPost.id = this.posts.length + 1;
+          this.posts.push(newPost);
+        }
       }
     }
   }

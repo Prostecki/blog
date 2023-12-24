@@ -2,7 +2,8 @@
     <div class="wrapper">
         <div class="createPostForm">
 
-            <input v-model="newPost.title" placeholder="Write something..." class="input" type="text">
+            <input v-model="newPost.title" placeholder="Theme..." class="input" type="text">
+            <input v-model="newPost.content" placeholder="Write something..." class="input" type="text">
 
             <button class="addPost">
 
