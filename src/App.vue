@@ -3,7 +3,9 @@
   <div class="app">
     
     <!-- Header component -->
-    <Header />
+    <Header @toggle-sidebar="toggleSideBar"/>
+    
+    <SideBar :sidebarPosition="sidebarPosition" />
 
     <CreatePostForm @addPost="addPost">
       <CreatePostButton />
@@ -23,6 +25,7 @@
 <script>
   // Importing necessary components
   import Header from "@/components/Header.vue";
+  import SideBar from "@/components/SideBar.vue";
   import PostList from "@/components/PostList.vue";
   import Footer from "@/components/Footer.vue";
   import CreatePostForm from "@/components/CreatePostForm.vue";
@@ -32,6 +35,7 @@
     // Registering components for use in this template
     components: {
       Header,
+      SideBar,
       PostList,
       Footer,
       CreatePostForm,
@@ -45,21 +49,24 @@
           { id: 2, title: 'Second post', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.' },
           { id: 3, title: 'Third post', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.' }
         ],
+        sidebarPosition: "-250px", // Initial position (hidden);
       };
     },
     methods: {
-      // Method to handle opening the CreatePostForm (assuming there's some missing code related to this)
-      openCreatePostForm() {
-        this.showCreatePostForm = true;
-      },
-      addPost(newPost) {
-        if (newPost.title.trim() !== '' || newPost.content.trim() !== '') {
+        // Method to handle opening the CreatePostForm (assuming there's some missing code related to this)
+        openCreatePostForm() {
+          this.showCreatePostForm = true;
+        },
+        addPost(newPost) {
           newPost.id = this.posts.length + 1;
           this.posts.push(newPost);
+        },
+        toggleSideBar() {
+          // Toggle the sidebar position
+          this.sidebarPosition = this.sidebarPosition === "0px" ? "-250px" : "0px";
         }
       }
     }
-  }
 </script>
 
 <style scoped>
