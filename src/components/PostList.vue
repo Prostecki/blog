@@ -37,6 +37,7 @@
     }
 
     .postList {
+      width: 600px;
       margin: 10px 0;
       padding: 5px;
       border: .5px solid black;

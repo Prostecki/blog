@@ -32,10 +32,22 @@
         },
         methods: {
             addNewPost() {
-                this.$emit("addPost", this.newPost);
+                if (this.newPost.title && this.newPost.content) {
+                    const newPost = {
+                        title: this.newPost.title,
+                        content: this.newPost.content,
+                    };
+                        this.$emit('add-post', newPost); // Emit an event to add the new post
+                        this.clearInputFields(); // Clear input fields after addin
+                    } else {
+                        // Handle error, e.g., show a message to the user
+                        console.error('Title and content are required');
+                    }
+            },
+            clearInputFields() {
                 this.newPost.title = '';
                 this.newPost.content = '';
-            }
+            },
         }
     }
 </script>
