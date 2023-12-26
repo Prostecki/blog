@@ -3,9 +3,9 @@
   <div class="app">
     
     <!-- Header component -->
-    <Header @toggle-sidebar="toggleSideBar"/>
+    <Header @open-sidebar="openSideBar"/>
     
-    <SideBar :sidebarPosition="sidebarPosition" />
+    <SideBar :sidebarOpen="sidebarOpen" :close-sidebar="closeSidebar"/>
 
     <CreatePostForm @addPost="addPost">
       <CreatePostButton />
@@ -49,7 +49,7 @@
           { id: 2, title: 'Second post', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.' },
           { id: 3, title: 'Third post', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.' }
         ],
-        sidebarPosition: "-250px", // Initial position (hidden);
+        sidebarOpen: false,
       };
     },
     methods: {
@@ -61,9 +61,11 @@
           newPost.id = this.posts.length + 1;
           this.posts.push(newPost);
         },
-        toggleSideBar() {
-          // Toggle the sidebar position
-          this.sidebarPosition = this.sidebarPosition === "0px" ? "-250px" : "0px";
+        openSideBar() {
+          this.sidebarOpen = true;
+        },
+        closeSidebar() {
+          this.sidebarOpen = false;
         }
       }
     }

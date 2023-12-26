@@ -4,7 +4,7 @@
             <AnOutlinedHome class="home" />
         </button>
         <h3>Contacts</h3>
-        <button @click="toggleSideBar">About</button>
+        <button @click="openSideBar">About</button>
     </div>
 </template>
 
@@ -17,8 +17,8 @@
             AnOutlinedHome
         },
         methods: {
-            toggleSideBar() {
-                this.$emit('toggle-sidebar');
+            openSideBar() {
+                this.$emit('open-sidebar');
             }
         }
     }
