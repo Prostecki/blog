@@ -39,6 +39,7 @@
         padding: 20px;
         border-radius: 0 12px 12px 0;
         position: fixed;
+        z-index: 5;
         top: 0;
         transition: -webkit-transform 0.4s ease;
         transition: transform 0.4s ease;

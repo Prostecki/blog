@@ -6,7 +6,7 @@
 
       <article class="postList" v-for="post in posts" :key="post.id">
         <!-- Pass the current post as a prop to the PostCard component -->
-        <PostCard :post="post"/>
+        <PostCard :post="post" @deletePost="deletePost(post.id)"/>
 
       </article>
     </section>
@@ -24,7 +24,12 @@
     },
     // Component name and props definition (accepting an array of posts)
     name: "PostList",
-    props: ['posts']
+    props: ['posts'],
+    methods: {
+      deletePost(postId) {
+        this.$emit('deletePost', postId);
+      }
+    }
   }
   </script>
   
@@ -41,6 +46,7 @@
       margin: 10px 0;
       padding: 5px;
       border: .5px solid black;
+      border-radius: 8px;
     }
   </style>
   

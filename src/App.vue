@@ -14,7 +14,7 @@
     </CreatePostForm>
 
     <!-- PostList component with posts data passed as a prop -->
-    <PostList :posts="posts" />
+    <PostList :posts="posts" @deletePost="deletePost" />
 
     <!-- Footer component -->
     <Footer />
@@ -46,9 +46,9 @@
       return {
         // Load posts from local storage or use a default array
         posts: JSON.parse(localStorage.getItem("posts")) || [
-          { id: 1, title: 'First post', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.' },
-          { id: 2, title: 'Second post', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.' },
-          { id: 3, title: 'Third post', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.' }
+          { id: 1, name: 'Kian Franco', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.' },
+          { id: 2, name: 'Kathleen Buck', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.' },
+          { id: 3, name: 'Mina Gregory', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.' }
         ],
         sidebarOpen: false,
       };
@@ -64,6 +64,21 @@
         this.posts.push(newPost);
         // Save posts to local storage whenever a new post is added
         localStorage.setItem("posts", JSON.stringify(this.posts));
+      },
+      deletePost(postId) {
+        const index = this.posts.findIndex((post) => post.id === postId);
+
+        if(index !== -1) {
+
+          this.posts.splice(index, 1);
+
+           // Save the modified posts array to localStorage
+          localStorage.setItem('posts', JSON.stringify(this.posts));
+
+          // Emit the 'deletePost' event with the postId
+          this.$emit('deletePost', postId);
+        }
+
       },
       // Method to open the sidebar
       openSideBar() {

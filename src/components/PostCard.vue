@@ -8,10 +8,11 @@
         <div class="post-content">
 
             <!-- Display the post title -->
-            <h2>{{ post.title }}</h2>
+            <h2>{{ post.name }}</h2>
 
             <!-- Display the post content -->
             <p>{{ post.content }}</p>
+
         </div>
 
         <!-- Container for action buttons for PostCard -->
@@ -27,6 +28,7 @@
                 <!-- AkChatBubble icon component -->
                 <AkChatBubble class="icon" />
             </button>
+            <button type="button" @click="handleDelete">X</button>
         </div>
     </div>
 </template>
@@ -51,6 +53,16 @@ export default {
         post: {
             type: Object, // Expects the post prop to be an object
             required: true, // Post prop is required
+        },
+    },
+    methods: {
+        handleDelete() {
+            try {
+                // Emit the 'deletePost' event with the postId
+                this.$emit('deletePost', this.post.id);
+            } catch (error) {
+                console.error('Error handling deletePost event:', error);
+            }
         },
     },
 }
@@ -106,9 +118,9 @@ export default {
         left: 5px;
         border: .5px solid grey;
         border-radius: 50%;
+        margin: 0 0 0 10px;
      }
      .avatar {
-        width: 75px;
-        padding: 5px;
+        width: 65px;
      }
 </style>

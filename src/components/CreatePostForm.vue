@@ -2,8 +2,8 @@
     <div class="wrapper">
         <div class="createPostForm">
 
-            <input v-model="newPost.title" placeholder="Theme..." class="input" type="text">
-            <input v-model="newPost.content" placeholder="Write something..." class="input" type="text">
+            <input v-model="newPost.name" placeholder="Your name" class="input" type="text">
+            <input v-model="newPost.content" placeholder="Content" class="input" type="text">
 
             <button class="addPost">
 
@@ -21,7 +21,7 @@
         data() {
             return {
                 newPost: {
-                    title: '',
+                    name: '',
                     content: '',
                 }
             }
@@ -32,20 +32,20 @@
         },
         methods: {
             addNewPost() {
-                if (this.newPost.title && this.newPost.content) {
+                if (this.newPost.name && this.newPost.content) {
                     const newPost = {
-                        title: this.newPost.title,
+                        name: this.newPost.name,
                         content: this.newPost.content,
                     };
                         this.$emit('add-post', newPost); // Emit an event to add the new post
                         this.clearInputFields(); // Clear input fields after addin
                     } else {
                         // Handle error, e.g., show a message to the user
-                        console.error('Title and content are required');
+                        console.error('Name and content are required');
                     }
             },
             clearInputFields() {
-                this.newPost.title = '';
+                this.newPost.name = '';
                 this.newPost.content = '';
             },
         }
