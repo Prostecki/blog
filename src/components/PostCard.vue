@@ -1,9 +1,18 @@
 <template>
     <div class="wrapperCard">
-        <!-- Display the post title -->
-        <h2>{{ post.title }}</h2>
-        <!-- Display the post content -->
-        <p>{{ post.content }}</p>
+
+        <div class="user-avatar-container">
+            <img class="avatar" src="https://gravatar.com/avatar/6d734d3612437326d518755f2101b975?s=400&d=robohash&r=x" alt="fake_avatar">
+        </div>
+        
+        <div class="post-content">
+
+            <!-- Display the post title -->
+            <h2>{{ post.title }}</h2>
+
+            <!-- Display the post content -->
+            <p>{{ post.content }}</p>
+        </div>
 
         <!-- Container for action buttons for PostCard -->
         <div class="action-buttons">
@@ -49,8 +58,15 @@ export default {
 
 <style scoped>
 
+    .wrapperCard {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     h2 {
-        text-align: center;
+        width: 100%;
         margin: 10px 0 10px;
     }
 
@@ -59,6 +75,7 @@ export default {
     }
 
     .action-buttons {
+        width: 500px;
         display: flex;
         justify-content: space-evenly;
     }
@@ -76,5 +93,22 @@ export default {
      .icon:hover {
         transform: scale(1.2);
         transition: .4s;
+     }
+     .post-content {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        width: 400px;
+     }
+     .user-avatar-container {
+        position: absolute;
+        top: 25px;
+        left: 5px;
+        border: .5px solid grey;
+        border-radius: 50%;
+     }
+     .avatar {
+        width: 75px;
+        padding: 5px;
      }
 </style>
