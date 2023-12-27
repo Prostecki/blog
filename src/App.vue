@@ -5,8 +5,10 @@
     <!-- Header component -->
     <Header @open-sidebar="openSideBar"/>
     
+    <!-- SideBar component -->
     <SideBar :sidebarOpen="sidebarOpen" :close-sidebar="closeSidebar"/>
 
+    <!-- CreatePostForm component with CreatePostButton as a child -->
     <CreatePostForm @addPost="addPost">
       <CreatePostButton />
     </CreatePostForm>
@@ -16,8 +18,6 @@
 
     <!-- Footer component -->
     <Footer />
-
-    <!-- CreatePostForm component with CreatePostButton as a child -->
     
   </div>
 </template>
@@ -44,7 +44,8 @@
     data() {
       // Data property to hold the initial array of posts
       return {
-        posts: [
+        // Load posts from local storage or use a default array
+        posts: JSON.parse(localStorage.getItem("posts")) || [
           { id: 1, title: 'First post', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.' },
           { id: 2, title: 'Second post', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.' },
           { id: 3, title: 'Third post', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.' }
@@ -53,22 +54,27 @@
       };
     },
     methods: {
-        // Method to handle opening the CreatePostForm (assuming there's some missing code related to this)
-        openCreatePostForm() {
-          this.showCreatePostForm = true;
-        },
-        addPost(newPost) {
-          newPost.id = this.posts.length + 1;
-          this.posts.push(newPost);
-        },
-        openSideBar() {
-          this.sidebarOpen = true;
-        },
-        closeSidebar() {
-          this.sidebarOpen = false;
-        }
+      // Method to handle opening the CreatePostForm (assuming there's some missing code related to this)
+      openCreatePostForm() {
+        this.showCreatePostForm = true;
+      },
+      // Method to add a new post
+      addPost(newPost) {
+        newPost.id = this.posts.length + 1;
+        this.posts.push(newPost);
+        // Save posts to local storage whenever a new post is added
+        localStorage.setItem("posts", JSON.stringify(this.posts));
+      },
+      // Method to open the sidebar
+      openSideBar() {
+        this.sidebarOpen = true;
+      },
+      // Method to close the sidebar
+      closeSidebar() {
+        this.sidebarOpen = false;
       }
     }
+  }
 </script>
 
 <style scoped>
