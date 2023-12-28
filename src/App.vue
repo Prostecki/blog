@@ -24,7 +24,6 @@
   import PostList from "@/components/PostList.vue";
   import Footer from "@/components/Footer.vue";
   import CreatePostForm from "@/components/CreatePostForm.vue";
-  import PostFormButtons from "@/components/UI/PostFormButtons.vue";
 
   export default {
     // Registering components for use in this template
@@ -34,7 +33,6 @@
       PostList,
       Footer,
       CreatePostForm,
-      PostFormButtons,
     },
     data() {
       // Data property to hold the initial array of posts

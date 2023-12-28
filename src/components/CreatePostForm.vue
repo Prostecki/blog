@@ -2,8 +2,8 @@
     <div class="wrapper">
         <div class="createPostForm">
 
-            <input v-model="newPost.name" placeholder="Your name" class="input" type="text">
-            <input v-model="newPost.content" placeholder="What is happening?!" class="input" type="text">
+            <input v-model="newPost.name" placeholder="Your name" class="input name" type="text">
+            <textarea v-model="newPost.content" placeholder="What is happening?!" class="input content" type="text"></textarea>
 
             <div class="postform-actions">
                 <button class="postform-buttons">
@@ -83,7 +83,6 @@
 </script>
 
 <style scoped>
-
     .wrapper {
         position: relative;
         width: 100%;
@@ -93,14 +92,27 @@
     .createPostForm {
         display: flex;
         justify-content: center;
-        width: 500px;
+        flex-direction: column;
+        width: 600px;
+        flex-wrap: wrap;
         padding: 5px;
-        /* border-radius: 12px; */
         border: .5px solid grey;
     }
     .input {
-        margin: 0 10px;
-        padding: 5px;
+        border: .5px solid red;
+        margin: 10px 10px;
+        padding: 10px;
+        border-radius: 12px;
+        align-items: stretch;
+    }
+    .name {
+        width: 100px;
+    }
+    .content {
+        width: 500px;
+    }
+    .postform-actions {
+        display: flex;
     }
      .postform-buttons {
         line-height: 10px;
