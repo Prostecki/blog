@@ -6,27 +6,30 @@
             <textarea v-model="newPost.content" placeholder="What is happening?!" class="input content" type="text"></textarea>
 
             <div class="postform-actions">
-                <button class="postform-buttons">
-                    <AnOutlinedPlus @click="addNewPost" class="animate" />
-                </button>
 
-                <button class="postform-buttons">
-                    <IcMediaImage class="animate" />
-                </button>
+                <div class="buttons-group">
+                    <button class="postform-buttons">
+                        <IcMediaImage class="animate" />
+                    </button>
+    
+                    <button class="postform-buttons">
+                        <AnOutlinedGif class="animate" />
+                    </button>
+    
+                    <button class="postform-buttons">
+                        <BxPoll class="animate" />
+                    </button>
+    
+                    <button class="postform-buttons">
+                        <FlEmojiEdit class="animate" />
+                    </button>
+                    <button class="postform-buttons">
+                        <AkSchedule class="animate" />
+                    </button>
+                </div>
 
-                <button class="postform-buttons">
-                    <AnOutlinedGif class="animate" />
-                </button>
-
-                <button class="postform-buttons">
-                    <BxPoll class="animate" />
-                </button>
-
-                <button class="postform-buttons">
-                    <FlEmojiEdit class="animate" />
-                </button>
-                <button class="postform-buttons">
-                    <AkSchedule class="animate" />
+                <button class="postbutton" @click="addNewPost">
+                    post
                 </button>
             </div>
         </div>
@@ -34,7 +37,6 @@
 </template>
 
 <script>
-    import { AnOutlinedPlus } from "@kalimahapps/vue-icons";
     import { IcMediaImage } from "@kalimahapps/vue-icons";
     import { AnOutlinedGif } from "@kalimahapps/vue-icons";
     import { BxPoll } from "@kalimahapps/vue-icons";
@@ -52,7 +54,6 @@
         },
         name: "CreatePostForm",
         components: {
-            AnOutlinedPlus,
             IcMediaImage,
             AnOutlinedGif,
             BxPoll,
@@ -113,12 +114,26 @@
     }
     .postform-actions {
         display: flex;
+        justify-content: space-between;
     }
      .postform-buttons {
         line-height: 10px;
         border: none;
         cursor: pointer;
         transition: .4s;
+     }
+     .postbutton {
+        width: 100px;
+        border: none;
+        cursor: pointer;
+        border-radius: 12px;
+        transition: .4s;
+        margin: 0 10px 0 0;
+     }
+     .postbutton:hover {
+        background-color: teal;
+        transition: .4s;
+        color: white;
      }
      .animate {
         width: 25px;

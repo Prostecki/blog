@@ -46,6 +46,12 @@
         sidebarOpen: false,
       };
     },
+    computed: {
+    reversedPosts() {
+    // Создайте копию массива и обратите его
+    return [...this.posts].reverse();
+  }
+},
     methods: {
       // Method to handle opening the CreatePostForm (assuming there's some missing code related to this)
       openCreatePostForm() {
@@ -53,6 +59,7 @@
       },
       // Method to add a new post
       addPost(newPost) {
+        
         newPost.id = this.posts.length + 1;
         this.posts.push(newPost);
         // Save posts to local storage whenever a new post is added
