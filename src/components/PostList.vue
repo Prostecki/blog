@@ -2,9 +2,13 @@
     <!-- Section wrapper for the list of posts -->
 
     <section class="wrapper">
-      <!-- Loop through each post and render the PostCard component -->
 
+      <!-- CreatePostForm component with CreatePostButton as a child -->
+      <CreatePostForm @addPost="addPost" />
+
+      <!-- Loop through each post and render the PostCard component -->
       <article class="postList" v-for="post in posts" :key="post.id">
+        
         <!-- Pass the current post as a prop to the PostCard component -->
         <PostCard :post="post" @deletePost="deletePost(post.id)"/>
 
@@ -15,20 +19,30 @@
   <script>
 
   // Importing the PostCard component
+  import CreatePostForm from './CreatePostForm.vue';
   import PostCard from './PostCard.vue';
   
   export default {
     // Registering the PostCard component for use in this template
     components: {
+      CreatePostForm,
       PostCard,
-    },
+      CreatePostForm
+},
     // Component name and props definition (accepting an array of posts)
     name: "PostList",
     props: ['posts'],
     methods: {
       deletePost(postId) {
         this.$emit('deletePost', postId);
-      }
+      },
+      // Method to add a new post
+      addPost(newPost) {
+        newPost.id = this.posts.length + 1;
+        this.posts.push(newPost);
+        // Save posts to local storage whenever a new post is added
+        localStorage.setItem("posts", JSON.stringify(this.posts));
+      },
     }
   }
   </script>

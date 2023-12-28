@@ -3,20 +3,44 @@
         <div class="createPostForm">
 
             <input v-model="newPost.name" placeholder="Your name" class="input" type="text">
-            <input v-model="newPost.content" placeholder="Content" class="input" type="text">
+            <input v-model="newPost.content" placeholder="What is happening?!" class="input" type="text">
 
-            <button class="addPost">
+            <div class="postform-actions">
+                <button class="postform-buttons">
+                    <AnOutlinedPlus @click="addNewPost" class="animate" />
+                </button>
 
-                <AnOutlinedPlus @click="addNewPost" class="animate" />
+                <button class="postform-buttons">
+                    <IcMediaImage class="animate" />
+                </button>
 
-            </button>
+                <button class="postform-buttons">
+                    <AnOutlinedGif class="animate" />
+                </button>
 
+                <button class="postform-buttons">
+                    <BxPoll class="animate" />
+                </button>
+
+                <button class="postform-buttons">
+                    <FlEmojiEdit class="animate" />
+                </button>
+                <button class="postform-buttons">
+                    <AkSchedule class="animate" />
+                </button>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
     import { AnOutlinedPlus } from "@kalimahapps/vue-icons";
+    import { IcMediaImage } from "@kalimahapps/vue-icons";
+    import { AnOutlinedGif } from "@kalimahapps/vue-icons";
+    import { BxPoll } from "@kalimahapps/vue-icons";
+    import { FlEmojiEdit } from "@kalimahapps/vue-icons";
+    import { AkSchedule } from "@kalimahapps/vue-icons";
+
     export default {
         data() {
             return {
@@ -28,7 +52,13 @@
         },
         name: "CreatePostForm",
         components: {
-            AnOutlinedPlus
+            AnOutlinedPlus,
+            IcMediaImage,
+            AnOutlinedGif,
+            BxPoll,
+            FlEmojiEdit,
+            AkSchedule,
+
         },
         methods: {
             addNewPost() {
@@ -72,7 +102,7 @@
         margin: 0 10px;
         padding: 5px;
     }
-     .addPost {
+     .postform-buttons {
         line-height: 10px;
         border: none;
         cursor: pointer;
