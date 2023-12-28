@@ -9,7 +9,7 @@
 
                 <div class="buttons-group">
                     <button class="postform-buttons">
-                        <IcMediaImage class="animate" />
+                        <IcMediaImage class="animate" alt="Media" />
                     </button>
     
                     <button class="postform-buttons">
@@ -28,7 +28,7 @@
                     </button>
                 </div>
 
-                <button class="postbutton" @click="addNewPost">
+                <button class="postbutton" @click="addNewPost" :class="{ 'disabled': isEmpty }" :disabled="isEmpty">
                     post
                 </button>
             </div>
@@ -49,7 +49,8 @@
                 newPost: {
                     name: '',
                     content: '',
-                }
+                },
+                isEmpty: true,
             }
         },
         name: "CreatePostForm",
@@ -59,7 +60,18 @@
             BxPoll,
             FlEmojiEdit,
             AkSchedule,
-
+        },
+        watch: {
+            // Watching changes in the 'newPost' property
+            newPost: {
+                // Handler function to be executed when 'newPost' changes
+                handler(newVal) {
+                    // Check if the 'name' or 'content' property of 'newPost' is empty after trimming
+                    this.isEmpty = !newVal.name.trim() || !newVal.content.trim();
+                },
+                // Enable deep watching to track changes in nested object properties
+                deep: true,
+            },
         },
         methods: {
             addNewPost() {
@@ -68,12 +80,14 @@
                         name: this.newPost.name,
                         content: this.newPost.content,
                     };
-                        this.$emit('add-post', newPost); // Emit an event to add the new post
-                        this.clearInputFields(); // Clear input fields after addin
-                    } else {
-                        // Handle error, e.g., show a message to the user
-                        console.error('Name and content are required');
-                    }
+                    this.$emit('add-post', newPost); // Emit an event to add the new post
+                    this.clearInputFields(); // Clear input fields after adding
+                } else {
+                    // Handle error, e.g., show a message to the user
+                    console.error('Name and content are required');
+                    this.isEmpty = !this.isEmpty;
+                    console.log(this.isEmpty);
+                }
             },
             clearInputFields() {
                 this.newPost.name = '';
@@ -116,33 +130,45 @@
         display: flex;
         justify-content: space-between;
     }
-     .postform-buttons {
+    .postform-buttons {
         line-height: 10px;
         border: none;
         cursor: pointer;
         transition: .4s;
-     }
-     .postbutton {
+    }
+    .postbutton {
         width: 100px;
         border: none;
         cursor: pointer;
         border-radius: 12px;
         transition: .4s;
         margin: 0 10px 0 0;
-     }
-     .postbutton:hover {
+    }
+    .postbutton:hover {
         background-color: teal;
         transition: .4s;
         color: white;
-     }
-     .animate {
+    }
+    /* Style for disabled button */
+    .postbutton.disabled {
+        background-color: gray;
+        color: white;
+        cursor: not-allowed;
+    }
+
+    .postbutton.disabled:hover {
+        background-color: gray;
+        color: white;
+        cursor: not-allowed;
+    }
+    .animate {
         width: 25px;
         padding: 10px;
         transition: .4s;
-     }
-     .animate:hover {
+    }
+    .animate:hover {
         background-color: teal;
         transition: .4s;
         color: white;
-     }
+    }
 </style>

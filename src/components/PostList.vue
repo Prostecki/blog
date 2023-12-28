@@ -61,12 +61,12 @@ export default {
   align-items: center;
   justify-content: center;
 }
-
 .postList {
   width: 600px;
   margin: 10px 0;
   padding: 5px;
   border: .5px solid black;
   border-radius: 8px;
+  box-shadow: 5px 5px 10px #0000004d;
 }
 </style>
