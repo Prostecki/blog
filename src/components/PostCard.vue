@@ -1,36 +1,36 @@
 <template>
-    <div :class="{ 'fade-out': isDeleting }" class="wrapperCard">
-
-        <div class="user-avatar-container">
-            <img class="avatar" src="https://gravatar.com/avatar/6d734d3612437326d518755f2101b975?s=400&d=robohash&r=x">
+        <div :class="{ 'fade-out': isDeleting }" class="wrapperCard">
+    
+            <div class="user-avatar-container">
+                <img class="avatar" src="https://gravatar.com/avatar/6d734d3612437326d518755f2101b975?s=400&d=robohash&r=x">
+            </div>
+            
+            <div class="post-content">
+    
+                <!-- Display the post title -->
+                <h2>{{ post.name }}</h2>
+    
+                <!-- Display the post content -->
+                <p>{{ post.content }}</p>
+    
+            </div>
+    
+            <!-- Container for action buttons for PostCard -->
+            <div class="action-buttons">
+                <button type="button">
+                    <AnOutlinedLike class="icon" />
+                </button>
+                <button type="button">
+                    <AkArrowForwardThick class="icon" />
+                </button>
+                <!-- Button with an icon (AkChatBubble) -->
+                <button type="button">
+                    <!-- AkChatBubble icon component -->
+                    <AkChatBubble class="icon" />
+                </button>
+                <button type="button" @click="handleDelete">X</button>
+            </div>
         </div>
-        
-        <div class="post-content">
-
-            <!-- Display the post title -->
-            <h2>{{ post.name }}</h2>
-
-            <!-- Display the post content -->
-            <p>{{ post.content }}</p>
-
-        </div>
-
-        <!-- Container for action buttons for PostCard -->
-        <div class="action-buttons">
-            <button type="button">
-                <AnOutlinedLike class="icon" />
-            </button>
-            <button type="button">
-                <AkArrowForwardThick class="icon" />
-            </button>
-            <!-- Button with an icon (AkChatBubble) -->
-            <button type="button">
-                <!-- AkChatBubble icon component -->
-                <AkChatBubble class="icon" />
-            </button>
-            <button type="button" @click="handleDelete">X</button>
-        </div>
-    </div>
 </template>
 
 <script>
@@ -72,6 +72,7 @@ export default {
                 console.error('Something happened:', error);
             }
         },
+        
     },
 }
 </script>
@@ -130,19 +131,5 @@ export default {
     }
     .avatar {
         width: 65px;
-    }
-    @keyframes fadeOut {
-        from {
-            opacity: 1;
-        }
-        to {
-            opacity: 0;
-            margin: 0;
-            padding: 0;
-            border: none;
-        }
-    }
-    .fade-out {
-        animation: fadeOut 0.5s ease;
     }
 </style>

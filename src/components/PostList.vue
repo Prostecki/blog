@@ -6,13 +6,20 @@
     <CreatePostForm @addPost="addPost" />
 
     <!-- Loop through each post and render the PostCard component -->
+    
     <article class="postList" v-for="post in reversedPosts" :key="post.id">
 
       <!-- Pass the current post as a prop to the PostCard component -->
-      <PostCard :post="post" @deletePost="deletePost(post.id)" />
+      <transition name="fade" mode="out-in">
+
+        <PostCard :post="post" @deletePost="deletePost(post.id)" />
+
+      </transition>
 
     </article>
+
   </section>
+
 </template>
 
 <script>
@@ -69,4 +76,24 @@ export default {
   border-radius: 8px;
   box-shadow: 5px 5px 10px #0000004d;
 }
+@keyframes fadeOut {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+  }
+  .fade-out {
+    animation: fadeOut 0.5s ease forwards;
+  }
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
 </style>
