@@ -9,7 +9,7 @@
     <article class="postList" v-for="post in reversedPosts" :key="post.id">
 
       <!-- Pass the current post as a prop to the PostCard component -->
-      <PostCard :post="post" @deletePost="deletePost(post.id)"/>
+      <PostCard :post="post" @deletePost="deletePost(post.id)" />
 
     </article>
   </section>

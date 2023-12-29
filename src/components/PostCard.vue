@@ -1,8 +1,8 @@
 <template>
-    <div class="wrapperCard">
+    <div :class="{ 'fade-out': isDeleting }" class="wrapperCard">
 
         <div class="user-avatar-container">
-            <img class="avatar" src="https://gravatar.com/avatar/6d734d3612437326d518755f2101b975?s=400&d=robohash&r=x" alt="fake_avatar">
+            <img class="avatar" src="https://gravatar.com/avatar/6d734d3612437326d518755f2101b975?s=400&d=robohash&r=x">
         </div>
         
         <div class="post-content">
@@ -42,6 +42,11 @@ import { AnOutlinedLike } from "@kalimahapps/vue-icons";
 
 // Export the PostCard component
 export default {
+    data() {
+        return {
+            isDeleting: false,
+        }
+    },
     components: {
         // Register AkChatBubble as a local component
         AkChatBubble,
@@ -58,10 +63,13 @@ export default {
     methods: {
         handleDelete() {
             try {
-                // Emit the 'deletePost' event with the postId
-                this.$emit('deletePost', this.post.id);
+                this.isDeleting = true;
+                setTimeout(() => {
+                    // Emit the 'deletePost' event with the postId
+                    this.$emit('deletePost', this.post.id);
+                }, 500);
             } catch (error) {
-                console.error('Error handling deletePost event:', error);
+                console.error('Something happened:', error);
             }
         },
     },
@@ -97,30 +105,44 @@ export default {
         background-color: white;
         cursor: pointer;
     }
-     .icon {
+    .icon {
         font-size: 1.2rem;
         margin: 10px 0;
         transition: .4s;
-     }
-     .icon:hover {
+    }
+    .icon:hover {
         transform: scale(1.2);
         transition: .4s;
-     }
-     .post-content {
+    }
+    .post-content {
         position: relative;
         display: flex;
         flex-wrap: wrap;
         width: 400px;
-     }
-     .user-avatar-container {
+    }
+    .user-avatar-container {
         position: absolute;
         top: 25px;
         left: 5px;
         border: .5px solid grey;
         border-radius: 50%;
         margin: 0 0 0 10px;
-     }
-     .avatar {
+    }
+    .avatar {
         width: 65px;
-     }
+    }
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+    }
+    .fade-out {
+        animation: fadeOut 0.5s ease;
+    }
 </style>

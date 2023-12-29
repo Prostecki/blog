@@ -39,12 +39,11 @@
       return {
         // Load posts from local storage or use a default array
         posts: JSON.parse(localStorage.getItem("posts")) || [
-          { id: 1, name: 'Kian Franco', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.' },
-          { id: 2, name: 'Kathleen Buck', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.' },
-          { id: 3, name: 'Mina Gregory', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.' }
+          { id: 1, name: 'Kian Franco', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.', description: 'fake_avatar1' },
+          { id: 2, name: 'Kathleen Buck', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.', description: 'fake_avatar2' },
+          { id: 3, name: 'Mina Gregory', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.', description: 'fake_avatar3' }
         ],
         sidebarOpen: false,
-        isEmpty: true,
       };
     },
     methods: {
