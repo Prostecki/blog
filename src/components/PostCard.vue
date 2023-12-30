@@ -2,7 +2,7 @@
         <div :class="{ 'fade-out': isDeleting }" class="wrapperCard">
     
             <div class="user-avatar-container">
-                <img class="avatar" :src="avatar1">
+                <img class="avatar" :src="post.avatar">
             </div>
             
             <div class="post-content">
@@ -121,14 +121,17 @@ export default {
         width: 400px;
     }
     .user-avatar-container {
+        width: 70px;
         position: absolute;
         top: 25px;
         left: 5px;
-        border: .5px solid grey;
-        border-radius: 50%;
         margin: 0 0 0 10px;
+        box-sizing: border-box;
     }
     .avatar {
-        width: 65px;
+        width: 100%;
+        border-radius: 50%;
+        background-position: center;
+        background-size: cover;
     }
 </style>

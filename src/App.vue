@@ -39,9 +39,9 @@
       return {
         // Load posts from local storage or use a default array
         posts: JSON.parse(localStorage.getItem("posts")) || [
-          { id: 1, name: 'Kian Franco', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.', description: 'fake_avatar1', avatar: 'assets/img/avatar1.jpg' },
-          { id: 2, name: 'Kathleen Buck', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.', description: 'fake_avatar2', avatar: 'assets/img/avatar2.jpg' },
-          { id: 3, name: 'Mina Gregory', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.', description: 'fake_avatar3', avatar: 'assets/img/avatar3.jpg' }
+          { id: 1, name: 'Kian Franco', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.', description: 'fake_avatar1', avatar: 'src/assets/img/avatar1.jpg' },
+          { id: 2, name: 'Kathleen Buck', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.', description: 'fake_avatar2', avatar: 'src/assets/img/avatar2.jpg' },
+          { id: 3, name: 'Mina Gregory', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.', description: 'fake_avatar3', avatar: 'src/assets/img/avatar3.jpg' }
         ],
         sidebarOpen: false,
       };
