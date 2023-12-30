@@ -2,7 +2,7 @@
         <div :class="{ 'fade-out': isDeleting }" class="wrapperCard">
     
             <div class="user-avatar-container">
-                <img class="avatar" src="https://gravatar.com/avatar/6d734d3612437326d518755f2101b975?s=400&d=robohash&r=x">
+                <img class="avatar" :src="avatar1">
             </div>
             
             <div class="post-content">
@@ -72,7 +72,6 @@ export default {
                 console.error('Something happened:', error);
             }
         },
-        
     },
 }
 </script>
