@@ -84,22 +84,18 @@ export default {
         flex-direction: column;
         align-items: center;
     }
-
     h2 {
         width: 100%;
         margin: 10px 0 10px;
     }
-
     p {
         margin: 10px 0 25px;
     }
-
     .action-buttons {
         width: 500px;
         display: flex;
         justify-content: space-evenly;
     }
-
     button {
         border: none;
         background-color: white;

@@ -99,76 +99,94 @@
 
 <style scoped>
     .wrapper {
-        position: relative;
-        width: 100%;
         display: flex;
         justify-content: center;
+        padding: 20px;
     }
+
     .createPostForm {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
         width: 600px;
-        flex-wrap: wrap;
-        padding: 5px;
-        border: .5px solid grey;
-    }
-    .input {
-        border: .5px solid red;
-        margin: 10px 10px;
-        padding: 10px;
+        border: 1px solid #ccd6dd;
         border-radius: 12px;
-        align-items: stretch;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
+
+    .input {
+        border: 1px solid #ccd6dd;
+        margin: 10px 0;
+        padding: 12px;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+
     .name {
-        width: 100px;
+        width: calc(100% - 24px);
     }
+
     .content {
-        width: 500px;
+        width: calc(100% - 24px);
+        resize: none;
     }
+
     .postform-actions {
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        margin-top: 15px;
     }
+
     .postform-buttons {
-        line-height: 10px;
+        line-height: 1;
         border: none;
         cursor: pointer;
-        transition: .4s;
+        transition: background-color 0.4s, color 0.4s;
+        background: none;
+        padding: 0;
+        font-size: 16px;
+        color: #66757f;
     }
+
+    .postform-buttons:hover {
+        background-color: #e1f2fe;
+        color: #1da1f2;
+    }
+
     .postbutton {
         width: 100px;
         border: none;
         cursor: pointer;
-        border-radius: 12px;
-        transition: .4s;
-        margin: 0 10px 0 0;
+        border-radius: 9999px;
+        transition: background-color 0.4s, color 0.4s;
+        padding: 10px;
+        font-size: 14px;
+        background-color: #1da1f2;
+        color: #fff;
     }
+
     .postbutton:hover {
-        background-color: teal;
-        transition: .4s;
-        color: white;
+        background-color: #0c8de4;
     }
-    /* Style for disabled button */
-    .postbutton.disabled {
-        background-color: gray;
-        color: white;
+
+    .postbutton:disabled {
+        background-color: #b0d4f1;
+        color: #fff;
         cursor: not-allowed;
     }
 
-    .postbutton.disabled:hover {
-        background-color: gray;
-        color: white;
-        cursor: not-allowed;
-    }
     .animate {
         width: 25px;
         padding: 10px;
-        transition: .4s;
+        transition: background-color 0.4s, color 0.4s;
+        color: #66757f;
     }
+
     .animate:hover {
-        background-color: teal;
-        transition: .4s;
-        color: white;
+        background-color: #e1f2fe;
+        color: #1da1f2;
     }
 </style>
+
