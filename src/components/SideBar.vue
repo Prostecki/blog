@@ -38,44 +38,42 @@
 </script>
 
 <style scoped>
-    /* Styling for the sidebar */
-    .sidebar {
-        text-align: center;
-        width: 250px;
-        height: 400px;
-        background-color: #444;
-        color: white;
-        padding: 20px;
-        border-radius: 0 12px 12px 0;
-        position: fixed;
-        z-index: 5;
-        top: 0;
-        transition: -webkit-transform 0.4s ease;
-        transition: transform 0.4s ease;
-    }
-    /* Styling for the open state of the sidebar */
-    .sidebar-open {
-        left: 0;
-    }
-    /* Styling for the close button */
-    button {
-        position: absolute;
-        border-radius: 0 12px 0 0;
-        top: 0;
-        right: 0;
-        width: 25px;
-        font-size: 15px;
-        font-weight: bolder;
-        padding: 5px;
-        background: none;
-        border: .5px solid grey;
-        cursor: pointer;
-        transition: .4s;
-    }
-    /* Styling for the close button on hover */
-    button:hover {
-        background-color: red;
-        color: white;
-        transition: .4s;
-    }
+  /* Styling for the sidebar */
+  .sidebar {
+    text-align: left;
+    width: 200px;
+    height: 100%;
+    background-color: #fff;
+    color: #14171a;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    border-right: 1px solid #e1e8ed;
+    transition: left 0.4s ease;
+  }
+  .sidebar-open {
+    left: 0;
+  }
+  /* Styling for the close button */
+  button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.4s, color 0.4s;
+  }
+  /* Styling for the close button on hover */
+  button:hover {
+    background-color: #e1e8ed; /* Twitter's button hover color */
+    color: #1da1f2; /* Twitter's blue color */
+  }
 </style>
+
