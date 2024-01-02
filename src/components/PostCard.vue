@@ -17,7 +17,7 @@
     
             <!-- Container for action buttons for PostCard -->
             <div class="action-buttons">
-                <button type="button">
+                <button  @click="like" v-if="like" :class=" { 'like-button': likes } " type="button">
                     <AnOutlinedLike class="icon" />
                 </button>
                 <button type="button">
@@ -45,6 +45,7 @@ export default {
     data() {
         return {
             isDeleting: false,
+            likes: false,
         }
     },
     components: {
@@ -72,6 +73,9 @@ export default {
                 console.error('Something happened:', error);
             }
         },
+        like() {
+            this.likes = !this.likes;
+        }
     },
 }
 </script>
@@ -130,4 +134,10 @@ export default {
         background-position: center;
         background-size: cover;
     }
+    button.like-button {
+        background-color: red;
+        color: white;
+        transition: 0.2s ease;
+    }   
+
 </style>

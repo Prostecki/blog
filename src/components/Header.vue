@@ -4,7 +4,7 @@
             <AnOutlinedHome class="home" />
         </button>
         <h3>Contacts</h3>
-        <button @click="openSideBar">About</button>
+        <h3 @click="openSideBar">About</h3>
     </div>
 </template>
 
@@ -43,11 +43,9 @@
     cursor: pointer;
     transition: color 0.4s;
   }
-
   .headbar h3:hover {
     color: #0c8de4;
   }
-
   button {
     width: 35px;
     height: 35px;
@@ -58,17 +56,14 @@
     cursor: pointer;
     transition: border-bottom 0.4s;
   }
-
   button:hover {
     border-bottom: 2px solid #1da1f2;
     box-sizing: border-box;
   }
-
   .home {
     color: #1da1f2;
     transition: color 0.4s;
   }
-
   .home:hover {
     color: #0c8de4;
   }

@@ -166,17 +166,14 @@
         background-color: #1da1f2;
         color: #fff;
     }
-
     .postbutton:hover {
         background-color: #0c8de4;
     }
-
     .postbutton:disabled {
         background-color: #b0d4f1;
         color: #fff;
         cursor: not-allowed;
     }
-
     .animate {
         width: 25px;
         padding: 10px;

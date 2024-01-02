@@ -1,6 +1,6 @@
 <template>
     <!-- Sidebar component -->
-    <aside :style="{ transform: 'translateX(' + (sidebarOpen ? '0px' : '-300px') + ')' }" class="sidebar"> 
+    <aside :style="{ transform: 'translateX(' + (sidebarOpen ? '0px' : '-300px') + ')' }" class="sidebar">
         <!-- Close button for the sidebar -->
         <button type="button" @click="closeSidebarHandler">X</button>
         <!-- Author's name -->
@@ -51,7 +51,7 @@
     z-index: 5;
     top: 0;
     border-right: 1px solid #e1e8ed;
-    transition: left 0.4s ease;
+    transition: transform 0.4s ease;
   }
   .sidebar-open {
     left: 0;
