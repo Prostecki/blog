@@ -71,7 +71,6 @@
           // Emit the 'deletePost' event with the postId
           this.$emit('deletePost', postId);
         }
-
       },
       // Method to open the sidebar
       openSideBar() {
@@ -80,6 +79,10 @@
       // Method to close the sidebar
       closeSidebar() {
         this.sidebarOpen = false;
+      },
+      handleRegistrationSuccess(data) {
+      console.log('Успешная регистрация. Данные:', data);
+      // Добавьте здесь логику после успешной регистрации
       },
     }
   }
