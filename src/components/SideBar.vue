@@ -9,7 +9,7 @@
     <p>{{ message }}</p>
     
     <!-- Additional information in the sidebar -->
-    <div>
+    <div class="sidebar-section">
       <h2>Contact Information</h2>
       <ul>
         <li>Email: {{ contact.email }}</li>
@@ -58,16 +58,16 @@ export default {
   /* Styling for the sidebar */
   .sidebar {
     text-align: left;
-    width: 200px;
+    width: 250px;
     height: 100%;
     background-color: #fff;
     color: #14171a;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     position: fixed;
     z-index: 5;
     top: 0;
-    border-right: 1px solid #e1e8ed;
+    border-right: 2px solid #e1e8ed;
     transition: transform 0.4s ease;
   }
   .sidebar-open {
@@ -91,5 +91,22 @@ export default {
   button:hover {
     background-color: #e1e8ed; /* Twitter's button hover color */
     color: #1da1f2; /* Twitter's blue color */
+  }
+  /* Styling for additional sections inside the sidebar */
+  .sidebar-section {
+    margin-top: 20px;
+    border-top: 1px solid #e1e8ed;
+    padding-top: 20px;
+  }
+  .sidebar-section h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .sidebar-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  .sidebar-section li {
+    margin-bottom: 10px;
   }
 </style>
