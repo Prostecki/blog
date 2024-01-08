@@ -81,7 +81,6 @@ export default {
 </script>
 
 <style scoped>
-
     .wrapperCard {
         position: relative;
         display: flex;
@@ -104,6 +103,24 @@ export default {
         border: none;
         background-color: white;
         cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+    }
+    button::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 0, 0, 0.2); /* Transparent red background */
+        border-radius: 50%;
+        top: 0;
+        left: 0;
+        transform: scale(0);
+        transition: transform 0.2s ease;
+    }
+    button:hover::before {
+        transform: scale(1);
     }
     .icon {
         font-size: 1.2rem;
@@ -138,6 +155,8 @@ export default {
         background-color: red;
         color: white;
         transition: 0.2s ease;
-    }   
-
+    }
+    .like-button .icon path {
+        fill: red;
+    }
 </style>
