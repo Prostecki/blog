@@ -115,7 +115,7 @@ export default {
         position: absolute;
         width: 100%;
         height: 100%;
-        background-color: rgba(255, 0, 0, 0.2); /* Transparent red background */
+        background-color: #0c8de4;
         border-radius: 50%;
         top: 0;
         left: 0;
