@@ -24,7 +24,7 @@
   import PostList from "@/components/PostList.vue";
   import Footer from "@/components/Footer.vue";
   import CreatePostForm from "@/components/CreatePostForm.vue";
-
+  
   export default {
     // Registering components for use in this template
     components: {

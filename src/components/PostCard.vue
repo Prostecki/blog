@@ -40,6 +40,7 @@ import { AkChatBubble } from "@kalimahapps/vue-icons";
 import { AkArrowForwardThick } from "@kalimahapps/vue-icons";
 import { AnOutlinedLike } from "@kalimahapps/vue-icons";
 
+
 // Export the PostCard component
 export default {
     data() {
@@ -101,6 +102,8 @@ export default {
     }
     button {
         border: none;
+        width: 30px;
+        height: 30px;
         background-color: white;
         cursor: pointer;
         position: relative;
@@ -124,7 +127,7 @@ export default {
     }
     .icon {
         font-size: 1.2rem;
-        margin: 10px 0;
+        margin: 5px 0;
         transition: .4s;
     }
     .icon:hover {
