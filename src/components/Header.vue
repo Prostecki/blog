@@ -5,6 +5,12 @@
         </button>
         <h3>Contacts</h3>
         <h3 @click="openSideBar">About</h3>
+        <!-- Добавьте компонент диалога -->
+        <UserProfileDialog
+          :is-visible="isProfileDialogVisible"
+          :user="currentUser"
+          @close="closeProfileDialog"
+        />
     </div>
 </template>
 
@@ -16,10 +22,23 @@
         components: {
             AnOutlinedHome
         },
+        data() {
+          return {
+            currentUser: {
+              // Здесь данные о текущем пользователе
+            },
+          }
+        },
         methods: {
             openSideBar() {
                 this.$emit('open-sidebar');
-            }
+            },
+            openProfileDialog() {
+              this.isProfileDialogVisible = true;
+            },
+            closeProfileDialog() {
+              this.isProfileDialogVisible = false;
+            },
         }
     }
 </script>

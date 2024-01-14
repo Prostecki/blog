@@ -44,6 +44,7 @@
           { id: 3, name: 'Mina Gregory', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.', description: 'fake_avatar3', avatar: 'src/assets/img/avatar3.jpg' }
         ],
         sidebarOpen: false,
+
       };
     },
     methods: {
@@ -55,6 +56,7 @@
       addPost(newPost) {
         newPost.id = this.posts.length + 1;
         this.posts.push(newPost);
+        
         // Save posts to local storage whenever a new post is added
         localStorage.setItem("posts", JSON.stringify(this.posts));
       },
