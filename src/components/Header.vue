@@ -5,7 +5,7 @@
         </button>
         <h3>Contacts</h3>
         <h3 @click="openSideBar">About</h3>
-        <h3 @click="openProfileMenu">Profile</h3>
+        <h3 @click="openUserProfile">Profile</h3>
     </div>
 </template>
 
@@ -29,8 +29,8 @@
             openSideBar() {
               this.$emit('open-sidebar');
             },
-            openProfileMenu() {
-              this.$emit('open-profileMenu')
+            openUserProfile() {
+              this.$emit("open-user-profile");
             },
             openProfileDialog() {
               this.isProfileDialogVisible = true;
@@ -38,6 +38,7 @@
             closeProfileDialog() {
               this.isProfileDialogVisible = false;
             },
+            
         }
     }
 </script>

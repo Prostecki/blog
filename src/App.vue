@@ -3,12 +3,12 @@
   <div class="app">
     
     <!-- Header component -->
-    <Header @open-sidebar="openSideBar"/>
+    <Header @open-user-profile="openUserProfile" @open-sidebar="openSideBar"/>
     
     <!-- SideBar component -->
     <SideBar :sidebarOpen="sidebarOpen" :close-sidebar="closeSidebar"/>
 
-    <UserProfile :profileCardOpen="profileCardOpen" :closeProfileCard="closeProfileCard" />
+    <UserProfile :profileCardOpen="isUserProfileOpen" :close-profile-card="closeUserProfile" />
 
     <!-- PostList component with posts data passed as a prop -->
     <PostList :posts="posts" @deletePost="deletePost" />
@@ -49,7 +49,7 @@
           { id: 3, name: 'Mina Gregory', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.', description: 'fake_avatar3', avatar: 'src/assets/img/avatar3.jpg' }
         ],
         sidebarOpen: false,
-        profileCardOpen: false,
+        isUserProfileOpen: false,
       };
     },
     methods: {
@@ -87,8 +87,11 @@
       closeSidebar() {
         this.sidebarOpen = false;
       },
-      closeProfileCard() {
-        this.profileCardOpen = false;
+      openUserProfile() {
+        this.isUserProfileOpen = true;
+      },
+      closeUserProfile() {
+        this.isUserProfileOpen = false;
       },
       handleRegistrationSuccess(data) {
       console.log('Успешная регистрация. Данные:', data);
