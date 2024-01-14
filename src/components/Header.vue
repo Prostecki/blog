@@ -5,16 +5,12 @@
         </button>
         <h3>Contacts</h3>
         <h3 @click="openSideBar">About</h3>
-        <!-- Добавьте компонент диалога -->
-        <UserProfileDialog
-          :is-visible="isProfileDialogVisible"
-          :user="currentUser"
-          @close="closeProfileDialog"
-        />
+        <h3 @click="openProfileMenu">Profile</h3>
     </div>
 </template>
 
 <script>
+
     import { AnOutlinedHome } from "@kalimahapps/vue-icons";
 
     export default {
@@ -31,7 +27,10 @@
         },
         methods: {
             openSideBar() {
-                this.$emit('open-sidebar');
+              this.$emit('open-sidebar');
+            },
+            openProfileMenu() {
+              this.$emit('open-profileMenu')
             },
             openProfileDialog() {
               this.isProfileDialogVisible = true;
@@ -53,10 +52,9 @@
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-
   .headbar h3 {
     margin: 0;
-    padding: 0;
+    padding: 5px;
     font-size: 1.2rem;
     color: #1da1f2;
     cursor: pointer;
@@ -64,6 +62,8 @@
   }
   .headbar h3:hover {
     color: #0c8de4;
+    border: 1px solid #1da1f2;
+    border-radius: 12px;
   }
   button {
     width: 35px;

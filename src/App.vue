@@ -8,6 +8,8 @@
     <!-- SideBar component -->
     <SideBar :sidebarOpen="sidebarOpen" :close-sidebar="closeSidebar"/>
 
+    <UserProfile :profileCardOpen="profileCardOpen" :closeProfileCard="closeProfileCard" />
+
     <!-- PostList component with posts data passed as a prop -->
     <PostList :posts="posts" @deletePost="deletePost" />
 
@@ -24,8 +26,10 @@
   import PostList from "@/components/PostList.vue";
   import Footer from "@/components/Footer.vue";
   import CreatePostForm from "@/components/CreatePostForm.vue";
+  import UserProfile from "@/components/UserProfile.vue";
   
   export default {
+
     // Registering components for use in this template
     components: {
       Header,
@@ -33,6 +37,7 @@
       PostList,
       Footer,
       CreatePostForm,
+      UserProfile
     },
     data() {
       // Data property to hold the initial array of posts
@@ -44,7 +49,7 @@
           { id: 3, name: 'Mina Gregory', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam tortor, egestas id pharetra interdum.', description: 'fake_avatar3', avatar: 'src/assets/img/avatar3.jpg' }
         ],
         sidebarOpen: false,
-
+        profileCardOpen: false,
       };
     },
     methods: {
@@ -56,7 +61,7 @@
       addPost(newPost) {
         newPost.id = this.posts.length + 1;
         this.posts.push(newPost);
-        
+
         // Save posts to local storage whenever a new post is added
         localStorage.setItem("posts", JSON.stringify(this.posts));
       },
@@ -81,6 +86,9 @@
       // Method to close the sidebar
       closeSidebar() {
         this.sidebarOpen = false;
+      },
+      closeProfileCard() {
+        this.profileCardOpen = false;
       },
       handleRegistrationSuccess(data) {
       console.log('Успешная регистрация. Данные:', data);
