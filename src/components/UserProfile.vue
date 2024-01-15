@@ -19,18 +19,22 @@
     },
     data() {
       return {
-        // Рандомная базовая информация о профиле пользователя
+        // Random info about profile 
         user: {
           name: "John Doe",
           bio: "Web Developer",
-          avatar: "https://placekitten.com/200/200", // Замените на свою ссылку на изображение
+          avatar: "https://placekitten.com/200/200", // Random link for icon
         },
       };
     },
     methods: {
       closeDialog() {
         this.closeProfileCard();
+        this.$emit("user-data", this.user);
       },
+      emitUserData() {
+        this.$emit('user-data', this.user);
+      }
     },
   };
   </script>

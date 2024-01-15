@@ -3,7 +3,7 @@
   <section class="wrapper">
 
     <!-- CreatePostForm component with CreatePostButton as a child -->
-    <CreatePostForm @addPost="addPost" />
+    <CreatePostForm :currentUser="currentUser" @addPost="addPost" />
 
     <!-- Loop through each post and render the PostCard component -->
     
@@ -28,6 +28,11 @@ import CreatePostForm from './CreatePostForm.vue';
 import PostCard from './PostCard.vue';
 
 export default {
+  data() {
+    return {
+      currentUser: null
+    }
+  },
   // Registering the PostCard component for use in this template
   components: {
     CreatePostForm,
@@ -56,6 +61,9 @@ export default {
       this.posts.push(newPost);
       // Save posts to local storage whenever a new post is added
       localStorage.setItem("posts", JSON.stringify(this.posts));
+    },
+    handleUserData(userData) {
+      this.currentUser = userData;
     },
   }
 }

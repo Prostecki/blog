@@ -41,12 +41,12 @@ export default {
   // Data properties for storing component-specific data
   data() {
     return {
-      author: "Prostecki", // Author's name
+      author: "Mark", // Author's name
       message: "Hey everyone!", // Message in the sidebar
       contact: {
-        email: "prostecki@example.com",
-        twitterHandle: "@prostecki",
-        twitter: "https://twitter.com/prostecki",
+        email: "mark@example.com",
+        twitterHandle: "@mark",
+        twitter: "https://twitter.com/mark",
       },
       // Any other data you want to include in the sidebar
     };

@@ -44,6 +44,9 @@
     import { AkSchedule } from "@kalimahapps/vue-icons";
 
     export default {
+        props: {
+            currentUser: Object,
+        },
         data() {
             return {
                 newPost: {
