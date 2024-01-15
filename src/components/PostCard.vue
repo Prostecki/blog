@@ -28,7 +28,7 @@
                     <!-- AkChatBubble icon component -->
                     <AkChatBubble class="icon" />
                 </button>
-                <button type="button" @click="handleDelete">X</button>
+                <button class="deletePost" type="button" @click="handleDelete">X</button>
             </div>
         </div>
 </template>
@@ -102,8 +102,8 @@ export default {
     }
     button {
         border: none;
-        width: 30px;
-        height: 30px;
+        width: 25px;
+        height: 25px;
         background-color: white;
         cursor: pointer;
         position: relative;
@@ -125,9 +125,23 @@ export default {
     button:hover::before {
         transform: scale(1);
     }
+    .deletePost::before {
+        content: 'X';
+        font-size: 15px;
+        color: white;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        margin: 5px 0;
+        border-radius: 50%;
+        transition: transform 0.2s ease;
+    }
+    .deletePost:hover::before {
+        transform: scale(1);
+    }
     .icon {
         font-size: 1.2rem;
-        margin: 5px 0;
+        margin: 0;
         transition: .4s;
     }
     .icon:hover {
